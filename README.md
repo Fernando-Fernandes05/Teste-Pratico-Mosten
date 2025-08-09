@@ -1,2 +1,2 @@
 # Teste-Pratico-Mosten
-Teste Prático – Processo de Formação
+Simulador de votação de filmes/séries.
