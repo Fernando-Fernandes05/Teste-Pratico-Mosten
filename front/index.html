@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VotaFlix</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>VotaFlix</h1>
+      <div class="totals">
+        <span id="totalLikes">👍 0</span>
+        <span id="totalDislikes">👎 0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid" id="contentGrid"></section>
+
+    <section class="form-section">
+      <h2>Cadastrar novo</h2>
+      <form id="createForm">
+        <div class="field">
+          <label for="title">Título*</label>
+          <input id="title" name="title" type="text" required />
+        </div>
+        <div class="field">
+          <label for="genre">Gênero*</label>
+          <input id="genre" name="genre" type="text" required />
+        </div>
+        <div class="field">
+          <label for="imageUrl">Imagem (URL)*</label>
+          <input id="imageUrl" name="imageUrl" type="url" required />
+        </div>
+        <div class="field">
+          <label for="description">Descrição</label>
+          <textarea id="description" name="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn primary">Cadastrar</button>
+      </form>
+    </section>
+  </main>
+
+  <template id="cardTemplate">
+    <article class="card">
+      <img class="poster" alt="poster" />
+      <div class="info">
+        <h3 class="title"></h3>
+        <p class="genre"></p>
+        <p class="description"></p>
+        <div class="actions">
+          <button class="btn like">👍 Gostei <span class="count likeCount">0</span></button>
+          <button class="btn dislike">👎 Não gostei <span class="count dislikeCount">0</span></button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html> 

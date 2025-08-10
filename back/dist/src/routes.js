@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.routes = void 0;
+const express_1 = require("express");
+const contentController_1 = require("./controllers/contentController");
+const statsController_1 = require("./controllers/statsController");
+exports.routes = (0, express_1.Router)();
+exports.routes.get('/health', (_req, res) => res.json({ ok: true }));
+exports.routes.get('/contents', contentController_1.listContents);
+exports.routes.post('/contents', contentController_1.createContent);
+exports.routes.post('/contents/:id/vote', contentController_1.voteOnContent);
+exports.routes.get('/stats/positive', statsController_1.getTotalPositive);
+exports.routes.get('/stats/negative', statsController_1.getTotalNegative);
+exports.routes.get('/stats', statsController_1.getTotals);
