@@ -7,15 +7,15 @@ function mapCountsByType(counts: Array<{ contentId: number; type: VoteType; _cou
   const map: Record<number, { likes: number; dislikes: number }> = {};
   for (const row of counts) {
     if (!map[row.contentId]) {
-        map[row.contentId] = { likes: 0, dislikes: 0 };
+      map[row.contentId] = { likes: 0, dislikes: 0 };
     }
 
     if (row.type === 'LIKE') {
-        map[row.contentId].likes = row._count._all;
+      map[row.contentId].likes = row._count._all;
     }
 
     if (row.type === 'DISLIKE') {
-        map[row.contentId].dislikes = row._count._all;
+      map[row.contentId].dislikes = row._count._all;
     }
   }
 
@@ -77,7 +77,7 @@ export async function voteOnContent(req: Request, res: Response, next: NextFunct
 
     const exists = await prisma.content.findUnique({ where: { id: contentId } });
     if (!exists) {
-        return res.status(404).json({ message: 'Conteúdo não encontrado' });
+      return res.status(404).json({ message: 'Conteúdo não encontrado' });
     }
 
     await prisma.vote.create({ data: { contentId, type: type as VoteType } });
